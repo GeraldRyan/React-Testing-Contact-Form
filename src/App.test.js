@@ -12,8 +12,8 @@ test("contact form without crashing", () =>{
   const { getByLabelText } = render(<ContactForm />)
   //Act
   const firstNameInput = getByLabelText(/First Name/i)
-  // const lastNameInput = getByLabelText(/Last Name/i)
-  // const emailInput = getByLabelText(/email/i)
+  const lastNameInput = getByLabelText(/Last Name/i)
+  const emailInput = getByLabelText(/email/i)
   // const messageInput = getByLabelText(/Message/i)
   //Assert
   expect(firstNameInput).toBeVisible()
@@ -24,7 +24,7 @@ test("contact form without crashing", () =>{
 
 test("Can type in fields", () =>{
   //Arrange
-  const { getByLabelText } = render(<ContactForm />)
+  const { getByLabelText, getByTestId } = render(<ContactForm />)  
   //Act
   const firstNameField = getByLabelText(/First Name/i)
   fireEvent.change(firstNameField, { target: { value: "Benjamin"} })
