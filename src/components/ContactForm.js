@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const ContactForm = () => {
+const ContactForm = () =>
+{
   const [data, setData] = useState();
   const { register, errors, handleSubmit, reset } = useForm({
     mode: "onBlur"
   });
-  const onSubmit = data => {
+  const onSubmit = data =>
+  {
     setData(data);
   };
 
@@ -29,7 +31,7 @@ const ContactForm = () => {
         <div>
           <label htmlFor="lastName">Last Name*</label>
           <input
-          id="lastName"
+            id="lastName"
             name="lastName"
             placeholder="luo"
             ref={register({ required: true })}
@@ -50,7 +52,7 @@ const ContactForm = () => {
         </div>
         <div>
           <label htmlFor="message">Message</label>
-          <textarea name="message" ref={register({ required: false })} />
+          <textarea id="message" name="message" ref={register({ required: false })} />
         </div>
         {data && (
           <pre style={{ textAlign: "left", color: "white" }}>
